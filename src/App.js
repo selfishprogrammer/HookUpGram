@@ -1,23 +1,32 @@
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import {
+  BrowserRouter,
+  Route,
+  Switch,
+  Routes,
+  useHistory,
+} from "react-router-dom";
+
+import Navbar from "./components/Navbar";
+import Posts from "./components/Posts";
+import Status from "./components/Status";
+import Profile from "./components/Profile";
+import Message from "./components/Message";
+import Add_Post from "./components/Add_Post";
+import Trending from "./components/Trending";
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <BrowserRouter>
+        <Navbar />
+        <Routes>
+          <Route path="/" element={<Posts />} />
+          <Route path="/profile" element={<Profile />} />
+          <Route path="/message" element={<Message />} />
+          <Route path="/trending" element={<Trending />} />
+        </Routes>
+      </BrowserRouter>
     </div>
   );
 }
